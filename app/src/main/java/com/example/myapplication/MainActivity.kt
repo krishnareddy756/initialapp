@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var myEmp = employee("krishna")
+
         //inflate this xml
         setContentView(R.layout.activity_main)
         Log.i(TAG,"activity is getting created")

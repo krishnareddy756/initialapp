@@ -3,6 +3,8 @@ package com.example.myapplication
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import android.util.Log
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
@@ -12,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class Homeactivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
-    AdapterView.OnItemClickListener {
+class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+    var data = arrayOf("india","hindi","australia","peacock","blue")
     var TAG = Homeactivity::class.java.simpleName    //"HomeActivity"
     lateinit var mySpinner: Spinner
-    lateinit var myListview:ListView
+    lateinit var myRecycler: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,6 +26,7 @@ class Homeactivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         mySpinner = findViewById(R.id.spinner) //taking handle
         myListview = findViewById(R.id.listView)
         myListview.isClickable = true
+        myRecycler = findViewById(R.id.recyclerView)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
